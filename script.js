@@ -13,8 +13,8 @@ const state = {client:null,user:null,accounts:[],envelopes:[],wishlist:[],holdin
 // Paste the Project URL and Publishable/anon key here before publishing.
 // Never paste a secret/service_role key into a public website.
 const APP_CONFIG = {
-  url: 'PASTE_YOUR_PROJECT_URL_HERE',
-  key: 'PASTE_YOUR_PUBLISHABLE_KEY_HERE'
+  url: 'https://dlceylwvwtnxvazgbjjg.supabase.co',
+  key: 'sb_publishable_ngoh1lKvVr2O6aQG_vTRpA_d5bkbeI7'
 };
 function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),3500)}
 function showView(view){for(const id of ['auth','app'])$('#'+id).classList.toggle('hidden',id!==view)}
