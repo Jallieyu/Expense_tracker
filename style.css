@@ -82,3 +82,25 @@ footer{color:#c5a5b3}
 @media(max-width:1150px){.wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:850px){.sidebar .brand{width:44px;overflow:hidden}.sidebar .brand>span:last-child{display:none}.sidebar .nav{font-size:0;justify-content:center;padding:12px 4px}.sidebar .nav span{font-size:22px;width:auto}.wish-preview-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.auth-card{padding:30px 24px}.auth-card h1{font-size:25px}.wishlist-grid{grid-template-columns:1fr}.wish-intro{flex-direction:column;align-items:flex-start}.wish-intro .btn{width:100%}.brand-icon{width:37px;height:37px}.sidebar{overflow:hidden}.top-actions{flex-wrap:wrap}}
+
+/* v1.2: portfolio and comma-separated money input */
+.holding-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.holding-card{min-width:0;display:flex;flex-direction:column;gap:10px}
+.holding-card h3{font-size:19px;margin:5px 0 7px;color:#78435d;overflow-wrap:anywhere}
+.holding-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.holding-value{font-size:27px;font-weight:800;color:#824760;letter-spacing:-.6px;overflow-wrap:anywhere}
+.holding-pnl{font-weight:700;font-size:14px}
+.holding-meta{font-size:12px;color:#a17d91;overflow-wrap:anywhere}
+.portfolio-kpis{grid-template-columns:repeat(3,minmax(0,1fr));margin:18px 0}
+.portfolio-kpis>div{padding:14px;background:#fff7fa;border-radius:16px;min-width:0}
+.portfolio-kpis .report-feature{font-size:20px;overflow-wrap:anywhere}
+input[data-money]{font-variant-numeric:tabular-nums}
+@media(max-width:1050px){.holding-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.holding-grid,.portfolio-kpis{grid-template-columns:1fr}}
+
+/* v1.3: compact title and readable input formatting */
+.brand{font-size:18px!important;letter-spacing:-.45px!important;font-weight:800!important;gap:9px!important}
+.brand-icon{width:39px!important;height:39px!important;font-size:21px!important;border-radius:13px!important}
+.auth-card h1{font-size:24px!important}
+.form-stack input[data-money]{font-variant-numeric:tabular-nums;letter-spacing:.2px;text-align:right;font-weight:650}
+@media(max-width:600px){.brand{font-size:17px!important}.auth-card h1{font-size:22px!important}}
