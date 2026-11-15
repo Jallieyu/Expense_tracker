@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#f7f8fb" />
+  <title>모아 | 나만의 자산 아카이브</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <section id="setup" class="auth-shell hidden" aria-label="Supabase 설정">
+    <div class="auth-card">
+      <div class="brand"><span class="brand-icon">✳</span><span>모아 <small>money archive</small></span></div>
+      <div class="eyebrow">처음 한 번만 설정</div><h1>Supabase 연결</h1>
+      <p class="muted">Supabase Project URL과 Publishable(또는 anon) Key를 입력해 연결해요. 비밀 키(service_role)는 절대 입력하지 마세요.</p>
+      <form id="config-form" class="form-stack">
+        <label>Project URL<input id="config-url" type="url" required placeholder="https://xxxx.supabase.co" autocomplete="off" /></label>
+        <label>Publishable / anon Key<input id="config-key" required placeholder="sb_publishable_... 또는 eyJ..." autocomplete="off" /></label>
+        <button class="btn primary" type="submit">연결하기</button>
+      </form>
+      <p class="tiny muted">설정값은 이 브라우저의 로컬 저장소에 저장됩니다. 실제 접근 권한은 Supabase Auth와 RLS가 결정합니다.</p>
+    </div>
+  </section>
+  <section id="auth" class="auth-shell hidden" aria-label="로그인">
+    <div class="auth-card">
+      <div class="brand"><span class="brand-icon">✳</span><span>모아 <small>money archive</small></span></div>
+      <div class="eyebrow">PRIVATE FINANCE SPACE</div><h1>나만의 돈 관리 공간</h1>
+      <p class="muted">계정을 보호하기 위해 로그인 후에만 데이터를 불러와요.</p>
+      <form id="login-form" class="form-stack">
+        <label>이메일<input id="login-email" type="email" required autocomplete="username" placeholder="name@example.com" /></label>
+        <label>비밀번호<input id="login-password" type="password" required autocomplete="current-password" placeholder="비밀번호" /></label>
+        <button class="btn primary" type="submit">로그인</button>
+      </form>
+      <button id="reset-config" class="link-btn" type="button">Supabase 연결 설정 변경</button>
+      <p class="tiny muted">회원가입은 사이트에서 제공하지 않아요. Supabase 대시보드에서 내 계정을 먼저 생성하세요.</p>
+    </div>
+  </section>
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-icon">✳</span><span>모아 <small>money archive</small></span></div>
+      <div class="nav-heading">WORKSPACE</div>
+      <nav id="sidebar-nav" aria-label="주요 메뉴">
+        <button class="nav active" data-page="dashboard"><span>◫</span> 대시보드</button>
+        <button class="nav" data-page="accounts"><span>▤</span> 나의 자산</button>
+        <button class="nav" data-page="envelopes"><span>▧</span> 현금바인더</button>
+        <button class="nav" data-page="transactions"><span>⇄</span> 거래내역</button>
+        <button class="nav" data-page="reports"><span>▥</span> 리포트</button>
+        <button class="nav" data-page="settings"><span>⚙</span> 설정</button>
+      </nav>
+      <div class="sidebar-foot"><div class="profile-avatar">M</div><div class="profile-info"><strong>나의 자산 공간</strong><small id="user-email">로그인됨</small></div><button class="icon-btn" id="logout" title="로그아웃" aria-label="로그아웃">↪</button></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><p class="eyebrow" id="page-crumb">OVERVIEW</p><h1 id="page-heading">대시보드</h1></div><div class="top-actions"><span id="today-label" class="muted hide-mobile"></span><button class="btn light" data-modal="income">+ 수입</button><button class="btn primary" data-modal="expense">+ 지출 기록</button></div></header>
+      <div id="content" aria-live="polite"></div>
+      <footer>나의 기록으로 만드는 작은 자산 아카이브 · 모아</footer>
+    </main>
+  </div>
+  <div id="modal-layer" class="modal-layer hidden" aria-hidden="true"><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><p class="eyebrow">NEW RECORD</p><h2 id="modal-title"></h2></div><button class="icon-btn" id="modal-close" aria-label="닫기">✕</button></div><form id="action-form" class="form-stack"></form></div></div>
+</body>
+</html>
